@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-// {props.subject.score}
+
 const Subject = props => (
     <tr>
         <td>{props.subject.subjectName}</td>
@@ -91,7 +91,7 @@ class GPACal extends Component{
 
             <div>
                  { this.creditList(),this.scoreList()}
-                <h3>GPA Calcrater</h3>
+                <h3>GPA Calculator</h3>
                     <table className="table">
                         <thead className="thead-light">
                             <tr>
