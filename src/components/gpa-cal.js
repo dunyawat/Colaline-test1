@@ -1,11 +1,25 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+// {props.subject.score}
 const Subject = props => (
     <tr>
         <td>{props.subject.subjectName}</td>
-        <td>{props.subject.score}</td>
+        <td>
+            {{  
+
+                4: "A",
+                3.5: "B+",
+                3: "B",
+                2.5: "C+",
+                2: "C",
+                1.5: "D+",
+                1: "D",
+                0: "F"
+
+            }[props.subject.score]}
+
+        </td>
         <td>{props.subject.credit}</td>
         <td>
             <Link href="#" onClick={() => {props.deleteSubject(props.subject._id)}} >delete</Link>
@@ -91,8 +105,8 @@ class GPACal extends Component{
                             { this.subjectList() }
                         </tbody>
                     </table> 
-                    <Link to="/add" style={{marginTop:"5px",backgroundColor:"blue",padding:"10px",borderRadius:"5px",cursor:'pointer',color:"white"}}>เพิ่มวิชาเรียน</Link>
-                    <div style={{marginTop:"15px"}}>GPA = {this.state.totalScore/this.state.totalCredit}</div>
+                    <Link to="/add" style={{marginTop:"5px",backgroundColor:"blue",padding:"10px",borderRadius:"5px",cursor:'pointer',color:"white"}}>Add Subject</Link>
+                    <div style={{marginTop:"15px"}}>GPA = {(this.state.totalScore/this.state.totalCredit).toFixed(2)}</div>
             </div>
         )
     }

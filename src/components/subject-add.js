@@ -14,8 +14,8 @@ class subjectAdd extends Component{
 
         this.state = {
             gpa:0,
-            score:0,
-            credit:0
+            score:4,
+            credit:0,
         };
     }
 
@@ -73,24 +73,48 @@ class subjectAdd extends Component{
                     </div>
                     <div className="form-group">
                         <label>Score:</label>
-                        <input type="text" 
+                        {/* <input type="text" 
                             required
                             className="form-control"
                             value={this.state.score}
                             onChange={this.onChangeScore}
-                            />
+                            /> */}
+                        <select ref="Score Input" 
+                            required
+                            className="form-control"
+                            value={this.state.score}
+                            onChange={this.onChangeScore}>
+                                <option value={4}>A</option>
+                                <option value={3.5}>B+</option>
+                                <option value={3}>B</option>
+                                <option value={2.5}>C+</option>
+                                <option value={2}>C</option>
+                                <option value={1.5}>D+</option>
+                                <option value={1}>D</option>
+                                <option value={0}>F</option>
+                        </select>
                     </div>
                     <div className="form-group">
                         <label>Credit:</label>
-                        <input type="text" 
+                        {/* <input type="text" 
                             required
                             className="form-control"
                             value={this.state.credit}
                             onChange={this.onChangeCredit}
-                            />
+                            /> */}
+                        <select ref="Credit Input" 
+                            required
+                            className="form-control"
+                            value={this.state.credit}
+                            onChange={this.onChangeCredit}>
+                                <option value={3}>3</option>
+                                <option value={2}>2</option>
+                                <option value={1}>1</option>
+                                <option value={0}>0</option>
+                        </select>
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Create Subject" className="btn btn-primary" />
+                        <input type="submit" value="Add Subject" className="btn btn-primary" />
                     </div>
                 </form>
             </div>
